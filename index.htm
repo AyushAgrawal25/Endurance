@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/cube-fabric.js"></script>
+    <link rel="stylesheet" href="css/sass.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body ng-app="qbApp" ng-controller="qbCtrl">
+    <nav class="nav-bar"> 
+        <div class="nav-content">
+            <span class="nav-logo">
+                ENDURANCE
+            </span>
+            <button ng-click="menuClickFun()" class="resp-menu-button">
+                <span><i class="fa fa-bars"></i>Menu</span>
+            </button>
+            <div class="menu-contents" qb-set-container-width>
+                <div class="menu-item">Home</div>
+                <div class="menu-item">About</div>
+                <div class="menu-item">Programs</div>
+                <div class="menu-item">Trainers</div>
+                <div class="menu-item">Pricing</div>
+                <div class="menu-item">Blog</div>
+                <div class="menu-item">Contact</div>
+            </div>
+        </div>
+    </nav>
+    <section class="crossfit" >
+        <div class="stage">
+            <div class="stage-1">
+                <div class="stage-container" qb-content-align=vertical:centre;horizontal:middle;width-type:responsive;height-type:static>
+                    <div class="heading">
+                        <h1>
+                            CROSSFIT
+                            <br>
+                            <span>GYM</span>
+                        </h1>
+                        <h2>
+                            GET YOUR BODY FIT
+                        </h2>
+                    </div>
+                </div>
+                <div class="dots">
+                    <button style=" background-color: black;"></button>
+                    <button ></button>
+                </div>
+            </div>
+            <div class="stage-2">
+                    <div class="stage-container" qb-content-align=vertical:centre;horizontal:middle;width-type:responsive;height-type:static>
+                        <div class="heading">
+                            <h1>
+                                CROSSFIT IS FOR
+                                <br>
+                                <span>EVERYONE</span>
+                            </h1>
+                            <h2>
+                                SHAPE YOUR BODY
+                            </h2>
+                        </div>
+                    </div>
+                <div class="dots">
+                    <button ></button>
+                    <button style="background-color: grey;"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="welcome">
+        <div class="container">
+            <div class="column" >
+                <div class="vid">
+                    <div class="vidLink" qb-content-align=vertical:centre;horizontal:middle;width-type:static;height-type:static>
+                        <div class="vid-icon" >
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="imgs">
+                    <div class="img" style="background-image: url('Images/program-1.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                    <div class="img" style="background-image: url('Images/program-2.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                    <div class="img" style="background-image: url('Images/program-3.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                </div>
+            </div>
+            <div class="column" >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolore nobis nostrum explicabo est aliquid rerum ex molestias adipisci, molestiae consequatur minus praesentium ut maxime quis dolorem blanditiis ea! Quia.
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+</body>
+</html>
