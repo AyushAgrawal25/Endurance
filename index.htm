@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/cube-fabric.js"></script>
+    <link rel="stylesheet" href="css/sass.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/stages.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body ng-app="qbApp" ng-controller="qbCtrl">
+    <nav class="nav-bar scroll-off hToOrg"> 
+        <div class="nav-content">
+            <span class="nav-logo">
+                ENDURANCE
+            </span>
+            <button ng-click="menuClickFun()" class="resp-menu-button">
+                <span><i class="fa fa-bars"></i>Menu</span>
+            </button>
+            <div class="menu-contents" qb-set-container-width>
+                <div class="menu-item">Home</div>
+                <div class="menu-item">About</div>
+                <div class="menu-item">Programs</div>
+                <div class="menu-item">Trainers</div>
+                <div class="menu-item">Pricing</div>
+                <div class="menu-item">Blog</div>
+                <div class="menu-item">Contact</div>
+            </div>
+        </div>
+    </nav>
+    <section class="crossfit" >
+        <div class="showCase">
+            <div class="stage" style="display: none;background-image: url('Images/bg_1.jpg');"> 
+                <div class="stage-container" qb-content-align=vertical:centre;horizontal:middle;width-type:responsive;height-type:static>
+                    <div class="heading animated fadeInUp">
+                        <h1>
+                            CROSSFIT
+                            <br>
+                            <span>GYM</span>
+                        </h1>
+                        <h2>
+                            GET YOUR BODY FIT
+                        </h2>
+                    </div>
+                </div>
+                <div class="dots">
+                    <button class="dot active-dot" ></button>
+                    <button class="dot inactive-dot" ></button>
+                </div>
+            </div>
+            <div class="stage" style="display: block;background-image: url('Images/bg_2.jpg');">
+                    <div class="stage-container" qb-content-align=vertical:centre;horizontal:middle;width-type:responsive;height-type:static>
+                        <div class="heading animated fadeInUp">
+                            <h1>
+                                CROSSFIT IS FOR
+                                <br>
+                                <span>EVERYONE</span>
+                            </h1>
+                            <h2>
+                                SHAPE YOUR BODY
+                            </h2>
+                        </div>
+                    </div>
+                <div class="dots">
+                    <button class="dot inactive-dot"  ></button>
+                    <button class="dot active-dot" ></button>
+                </div>
+            </div> 
+        </div>  
+    </section>
+    <section class="welcome">
+        <div class="container">
+            <div class="column" >
+                <div class="vid img-cover" style="background-image: url('Images/about.jpg');">
+                    <div class="vidLink" qb-content-align=vertical:centre;horizontal:middle;width-type:static;height-type:static>
+                        <div class="vid-icon" >
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="imgs">
+                    <div class="img img-cover" style="background-image: url('Images/program-1.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                    <div class="img img-cover" style="background-image: url('Images/program-2.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                    <div class="img img-cover" style="background-image: url('Images/program-3.jpg');">
+                        <a href="#" ></a>
+                    </div>
+                </div>
+            </div>
+            <div class="column" >
+                <div class="text">
+                    <div class="heading">
+                        <span class="welcome">WELCOME</span>
+                        <h2>
+                            <span class="head">
+                                WELCOME TO
+                            </span>
+                            <span class="head" style="color:#fcd307">
+                                ENDURANCE
+                            </span>
+                            <span class="head">
+                                CROSSFIT GYM
+                            </span>
+                        </h2>
+                    </div>
+                    <div class="content">
+                        <div class="para">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</div>
+                        <div class="join">
+                            <a href="#">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="container">
+            <div class="head">
+                <div class="heading">
+                    <span class="service-heads">SERVICES</span>
+                    <h2>KICK YOUR <span>FEET</span> UP</h2></div>
+                </div>
+            <div class="content">
+                <div class="column">
+                    <div class="box">
+                        <div class="icon-box"></div>
+                    </div>
+                    <div class="text">
+                        <div class="text-head">ANALYZE YOUR GOAL</div>
+                        <p>
+                            A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box">
+                        <div class="icon-box"></div>
+                    </div>
+                    <div class="text">
+                        <div class="text-head">WORK HARD ON IT</div>
+                        <p>
+                            A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box">
+                        <div class="icon-box"></div>
+                    </div>
+                    <div class="text">
+                        <div class="text-head">ACHIEVE YOUR PERFECT BODY</div>
+                        <p>
+                            A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box">
+                        <div class="icon-box"></div>
+                    </div>
+                    <div class="text">
+                        <div class="text-head">IMPROVE YOUR PERFORMANCE</div>
+                        <p>
+                            A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="classes">
+        <div class="sec-container">
+            <div class="header">
+                <div class="sub-head">
+                    <span>GYM CLASSES</span>
+                </div>
+                <div class="main-head">
+                    WHAT YOU GET FROM <span>ENDURANCE</span> MEMBERSHIP
+                </div>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+            <div class="content">
+                <div class="img-wrapper" ng-click="qbImgClickFun()">
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-1.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    MUSCLE SCULPE
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-2.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    FAT BURN
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-3.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    CYCLING
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-4.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    PILATES & STRETCHING
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-5.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    BOXING
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-6.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    STRETCHING
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-7.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    ABDOMINAL
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('Images/program-8.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    PULL-UPS
+                                </div>
+                                <div class="img-content">
+                                    <div class="img-text animated">
+                                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-dots">
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(0)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(1)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(2)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(3)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(4)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(5)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(6)"></button>
+                    <button class="dot inactive-dot slider-dot"  ng-click="qbChangeImgFun(7)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pricing">
+        <div class="container">
+            <div class="row-1">
+                <div class="column">
+                    <h3>ONE DAY TRAINING</h3>
+                    <div class="price">
+                        7 DOLLARS
+                    </div>
+                    <div class="description">
+                        100% FREE. FOREVER
+                    </div>
+                    <a class="start-btn">GET STARTED</a>
+                    <h2>ENJOY ALL FEATURES</h2>
+                    <div class="description"> KJFK</div>
+                </div>
+                <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eaque assumenda voluptatem aliquid. Provident vero harum veniam maxime debitis officia dolorem! Doloribus, molestiae dolor! Possimus vel eligendi vero nemo soluta?</div>
+                <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eaque assumenda voluptatem aliquid. Provident vero harum veniam maxime debitis officia dolorem! Doloribus, molestiae dolor! Possimus vel eligendi vero nemo soluta?</div>
+            </div>
+            <div class="row-2">
+                <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eaque assumenda voluptatem aliquid. Provident vero harum veniam maxime debitis officia dolorem! Doloribus, molestiae dolor! Possimus vel eligendi vero nemo soluta?</div>
+                <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eaque assumenda voluptatem aliquid. Provident vero harum veniam maxime debitis officia dolorem! Doloribus, molestiae dolor! Possimus vel eligendi vero nemo soluta?</div>
+                <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eaque assumenda voluptatem aliquid. Provident vero harum veniam maxime debitis officia dolorem! Doloribus, molestiae dolor! Possimus vel eligendi vero nemo soluta?</div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+</body>
+</html>
