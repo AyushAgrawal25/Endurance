@@ -1,16 +1,20 @@
 var myApp = angular.module('qbApp', []);
-myApp.controller('qbCtrl', function($scope) {
+myApp.controller('qbCtrl', function($scope,$interval) {
     $scope.menuOpenFun=function(){
-        angular.element(menuContent).addClass("menu-open");
-        angular.element(menuContent).removeClass("menu-close");
+		angular.element(menuContent).addClass("menu-open");
+		angular.element(menuContent).addClass("animated slideInDown");
+		angular.element(menuContent).removeClass("menu-close");
     }
     $scope.menuCloseFun=function(){
         angular.element(menuContent).removeClass("menu-open");
+		angular.element(menuContent).removeClass("animated slideInDown");
         angular.element(menuContent).addClass("menu-close");
     }
-    
+	
+	
+	//All about Menus
     var menuContent=document.querySelector(".menu-contents");
-    if(window.innerWidth<825)
+    if(window.innerWidth<990)
     {
         $scope.menuCloseFun();
     }
@@ -20,7 +24,7 @@ myApp.controller('qbCtrl', function($scope) {
     }
     var win=angular.element(window);
     win.bind("resize",function(){
-        if(window.innerWidth>825)
+        if(window.innerWidth>990)
         {
             $scope.menuOpenFun();
         }
@@ -36,10 +40,37 @@ myApp.controller('qbCtrl', function($scope) {
         }
         else
         {
-            $scope.menuOpenFun();
+			$scope.menuOpenFun();
         }
 	}
+	var nav=angular.element(document.querySelector(".nav-bar"));
+	angular.element(document).bind('scroll',function(event){
+		if(window.scrollY>80)
+		{
+			nav.addClass("hToZero");
+			nav.removeClass("hToOrg");
+		}
+		else
+		{
+			nav.addClass("hToOrg");
+			nav.removeClass("hToZero");
+		}
+		
+		if(window.scrollY>(window.innerHeight*0.2))
+		{
+			nav.addClass("scroll-on");
+			nav.addClass("animated slideInDown");
+			nav.removeClass("scroll-off");
+		}
+		else
+		{
+			nav.removeClass("scroll-on");
+			nav.removeClass("animated slideInDown");
+			nav.addClass("scroll-off");
+		}
+	});
 
+	//All about crossfit
 	var crossfit=angular.element(document.querySelector(".crossfit"));
 	crossfit.css("height",window.innerHeight+"px");
 	crossfit.css("width",window.innerWidth+"px");
@@ -48,6 +79,235 @@ myApp.controller('qbCtrl', function($scope) {
 		crossfit.css("height",window.innerHeight+"px");
 		crossfit.css("width",window.innerWidth+"px");
 	});
+
+	//Images Slider
+	var imgWrapperEle=document.querySelector(".img-wrapper"); 
+	var imgEles=document.querySelectorAll(".img-slide");
+	var imgLayerEles=document.querySelectorAll(".img-layer");
+	var imgDesEles=document.querySelectorAll(".img-des");
+	var imgTitleEles=document.querySelectorAll(".img-title");
+	var imgContentEles=document.querySelectorAll(".img-content");
+	var imgTextEles=document.querySelectorAll(".img-text");
+	var dotEles=document.querySelectorAll(".slider-dot");
+	var initialImgNum=0;
+
+	var setAllImgElesIdFun=function(){ 
+		imgEles=document.querySelectorAll(".img-slide");
+		angular.forEach(imgEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+			angular.element(value).addClass("animated");
+		});
+
+		imgLayerEles=document.querySelectorAll(".img-layer");
+		angular.forEach(imgLayerEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+		});
+		
+		imgDesEles=document.querySelectorAll(".img-des");
+		angular.forEach(imgDesEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+		});
+
+		imgTitleEles=document.querySelectorAll(".img-title");
+		angular.forEach(imgTitleEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+		});
+
+		imgContentEles=document.querySelectorAll(".img-content");
+		angular.forEach(imgContentEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+		});
+
+		imgTextEles=document.querySelectorAll(".img-text");
+		angular.forEach(imgTextEles, function(value,key){
+			angular.element(value).attr("qb-img-id",key);
+		});
+	}
+
+	setAllImgElesIdFun();
+	var setDotsDataFun=function(numOfDots,numOfImgs){
+		angular.forEach(dotEles,function(value,key){
+			if(numOfDots>key)
+			{
+				angular.element(value).css("display","inline-block");
+			}
+			else
+			{
+				angular.element(value).css("display","none");
+			}
+		});
+	}
+
+	var getImgEleNumFun=function(){
+		if(window.innerWidth<600)
+		{
+			var numOfDots=8;
+			var numOfImgs=1;
+			setDotsDataFun(numOfDots,numOfImgs);
+			return numOfImgs;
+		}
+		else if(window.innerWidth<800)
+		{
+			var numOfDots=4;
+			var numOfImgs=2;
+			setDotsDataFun(numOfDots,numOfImgs);
+			return numOfImgs;
+		}
+		else if(window.innerWidth<1200)
+		{
+			var numOfDots=3;
+			var numOfImgs=3;
+			setDotsDataFun(numOfDots,numOfImgs);
+			return numOfImgs;
+		}
+		else 
+		{
+			var numOfDots=2;
+			var numOfImgs=4;
+			setDotsDataFun(numOfDots,numOfImgs);
+			return numOfImgs;
+		}
+	}
+	
+
+	var qbSetSliderImgsFun=function(){
+		var imgWidthPer=(100/getImgEleNumFun())+"%";
+		angular.forEach(imgEles,function(value,key){
+			var numOfImgs=getImgEleNumFun();
+			angular.element(value).css("width",imgWidthPer);
+		});
+	}
+
+	$scope.qbChangeImgFun=function(dotId){
+		qbActivateImgFun(parseInt(dotId));
+	}
+
+	var qbGetImgContentHeight=function(){
+		angular.forEach(imgTextEles,function(value,key){
+			var isImgActive=angular.element(imgEles[key]).hasClass("active-img");
+			angular.element(imgEles[key]).addClass("active-img");
+			angular.element(imgEles[key]).removeClass("inactive-img");
+			
+
+			angular.element(value).css("height","auto");
+			var imgContentHeight=angular.element(value)[0].offsetHeight;
+			angular.element(value).css("height","0px");
+			angular.element(value).attr("qb-content-height",imgContentHeight);
+
+			if(!isImgActive)
+			{
+				angular.element(imgEles[key]).removeClass("active-img");
+				angular.element(imgEles[key]).addClass("inactive-img");
+			}
+		});
+	}
+
+	var activeDotId=0;
+	var qbActivateImgFun=function(dotId){
+		if(activeDotId<dotId)
+		{
+			var diff=dotId-activeDotId;
+			imgEleForwardFun(diff);
+		}
+		else if(activeDotId>dotId)
+		{
+			var diff=activeDotId-dotId;
+			imgEleBackwardFun(diff);
+		}
+
+		activeDotId=dotId;
+	};
+
+	var imgEleForwardFun=function(diff){
+		var numOfImgs=getImgEleNumFun();
+		var maxTimes=diff*numOfImgs;
+
+		var times=0;
+		var intervalFun=function(){
+			imgEles=document.querySelectorAll(".img-slide");
+			
+			var firstImgEle=imgEles[0];
+			imgWrapperEle.append(firstImgEle);
+			setAllImgElesIdFun();
+			times++;
+			if(times==maxTimes)
+			{
+				window.clearInterval(changeInterval);
+			}
+		};
+		var changeInterval=window.setInterval(intervalFun,900);
+
+	};
+	var imgEleBackwardFun=function(diff){
+		var numOfImgs=getImgEleNumFun();
+		var maxTimes=diff*numOfImgs;
+
+		var times=0;
+		var intervalFun=function(){
+			imgEles=document.querySelectorAll(".img-slide");
+			
+			var lastImgEle=imgEles[imgEles.length-1];
+			imgWrapperEle.insertBefore(lastImgEle,imgEles[0]);
+			setAllImgElesIdFun();
+			times++;
+			if(times==maxTimes)
+			{
+				window.clearInterval(changeInterval);
+			}
+		};
+		var changeInterval=window.setInterval(intervalFun,900);
+	};
+
+	var imgTranslateForwardFun=function(){
+		
+	};
+
+	var imgTranslateBackwardFun=function(imgId){
+	};
+
+	qbSetSliderImgsFun();
+	qbActivateImgFun(0);
+	qbGetImgContentHeight();
+
+	angular.element(window).bind('resize', function(){
+		qbSetSliderImgsFun();
+		qbActivateImgFun(0);	
+		qbGetImgContentHeight();
+	});
+
+	//MouseEnter
+	$scope.qbHoverOnFun=function(event){
+		var qbHoveredImgId=angular.element(event.target).attr("qb-img-id");
+		
+		angular.forEach(imgTextEles,function(value,key){
+			var qbImgId=angular.element(value).attr("qb-img-id");
+			if(qbImgId==qbHoveredImgId)
+			{
+				angular.element(value).addClass("fadeIn");
+				var qbContentHeight=angular.element(value).attr("qb-content-height");
+				angular.element(value).css("height",qbContentHeight+"px");
+				angular.element(value).removeClass("fadeOut");
+			}
+		});
+	}
+
+	$scope.qbHoverOffFun=function(event){
+		var qbHoveredImgId=angular.element(event.target).attr("qb-img-id");
+		
+		angular.forEach(imgTextEles,function(value,key){
+			var qbImgId=angular.element(value).attr("qb-img-id");
+			if(qbImgId==qbHoveredImgId)
+			{
+				angular.element(value).removeClass("fadeIn");
+				angular.element(value).css("height","0px");
+				angular.element(value).addClass("fadeOut");
+			}
+		});
+	}
+
+	//Slider function
+	$scope.qbImgClickFun=function(){
+	};
 });
 myApp.service('qbBasics',qbBasics);
 qbBasics.$inject=['$compile'];
@@ -1892,6 +2152,7 @@ myApp.directive('qbSetContainerWidth',['qbBasics', function(qbBasics) {
 			angular.forEach(angular.element(element).children(),function(contChild,key){
 				contWidth+=qbBasics.getOutterWidth(contChild);
 			});
+			contWidth*=1.00001;
 			angular.element(element).css('width',contWidth+"px");
 		}
 	}
