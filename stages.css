@@ -1,0 +1,57 @@
+.crossfit .showCase {
+  height: 100%;
+}
+
+.crossfit .showCase .stage {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+}
+
+.crossfit .showCase .stage .stage-container {
+  padding: 20px;
+  width: 100%;
+  height: 95%;
+}
+
+.crossfit .showCase .stage .stage-container .heading {
+  position: relative;
+  text-align: center;
+}
+
+.crossfit .showCase .stage .stage-container .heading h1 {
+  text-transform: uppercase;
+  font-size: 7vw;
+  color: #fcd307;
+  line-height: 0.9;
+  font-weight: 900;
+  font-family: Roboto,sans-serif;
+}
+
+.crossfit .showCase .stage .stage-container .heading h1 span {
+  font-size: 16vw;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fcd307;
+}
+
+.crossfit .showCase .stage .stage-container .heading h2 {
+  font-size: 13px;
+  letter-spacing: 10px;
+  color: #fcd307;
+}
+
+.crossfit .showCase .stage .dots {
+  text-align: center;
+}
+
+.crossfit .showCase .stage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=stages.css.map */
